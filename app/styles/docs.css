@@ -575,3 +575,8 @@
     @apply rounded-sm bg-gray-100/50 px-1.5 pb-0.5 pt-px text-xs text-gray-600 group-hover:text-gray-100 dark:bg-gray-800/50 dark:text-gray-300;
   }
 }
+
+/* mermaid graphs have incremental id starting from mermaid-0 */
+svg[id^="mermaid"] {
+  background-color: white;
+}

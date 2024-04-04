@@ -40,6 +40,7 @@ export async function getProcessor(options?: ProcessorOptions) {
     { default: rehypeSlug },
     { default: rehypeStringify },
     { default: rehypeAutolinkHeadings },
+    { default: rehypeMermaid },
     plugins,
   ] = await Promise.all([
     import("unified"),
@@ -49,6 +50,7 @@ export async function getProcessor(options?: ProcessorOptions) {
     import("rehype-slug"),
     import("rehype-stringify"),
     import("rehype-autolink-headings"),
+    import("rehype-mermaid"),
     loadPlugins(),
   ]);
 
@@ -60,7 +62,8 @@ export async function getProcessor(options?: ProcessorOptions) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings);
+    .use(rehypeAutolinkHeadings)
+    .use(rehypeMermaid);
 }
 
 type InternalPlugin<
